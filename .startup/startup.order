@@ -1,2 +1,5 @@
 websocketd
 hugo
+installZeppelin.sh
+nodetool-repair.sh
+restartOpsCenter.sh
