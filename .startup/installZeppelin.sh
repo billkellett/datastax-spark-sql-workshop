@@ -9,7 +9,7 @@
 if [ `hostname` == 'node0' ]
 then
   echo "Downloading Zeppelin..."
-  curl -s -o zeppelin-0.7.1.tar.gz 'https://s3.amazonaws.com/dse-sketch-examples/zeppelin-0.7.1-dse-5.1.1.tar.gz' -L 2>&1 | tee zepplin-download.log
+  curl -s -o zeppelin-0.7.1.tar.gz 'https://s3.amazonaws.com/dse-sketch-examples/zeppelin-0.7.1-dse-5.1.1.tar.gz' -L 2>&1 | tee zeppelin-download.log
 
   echo "Untar Zeppelin..."
   tar -zxf zeppelin-0.7.1.tar.gz
@@ -24,8 +24,10 @@ then
   sudo apt-get install jq
 
   #Initialize Zeppelin.
-  curl -o zepplinhome.out "http://localhost:8080/#/" -L -m 10
-  curl -o zepplininterp.out "http://localhost:8080/#/interpreter" -L -m 10
+  
+  # save for debugging purposes
+  curl -o zeppelinhome.out "http://localhost:8080/#/" -L -m 10
+  curl -o zeppelininterp.out "http://localhost:8080/#/interpreter" -L -m 10
 
   #Set variable to the Zeppelin Cassandra interpreter id
   CASSANDRA_INTERP_ID=$(curl localhost:8080/api/interpreter/setting | jq '.body|.[]|select(.name=="cassandra")|.id' -r)
@@ -49,8 +51,10 @@ then
 
   sleep 5
 
-  # use this when you have a notebook to import... curl -vX POST http://localhost:8080/api/notebook/import -d @notebook/zeppelin/CountMinSketch/note.json \--header "Content-Type: application/json"
-  # ditto... curl -vX POST http://localhost:8080/api/notebook/import -d @notebook/zeppelin/HyperLogLog/note.json \--header "Content-Type: application/json"
+  # import zeppelin notebooks
+  curl -vX POST http://localhost:8080/api/notebook/import -d @notebook/bkplay.json \--header "Content-Type: application/json"
+  curl -vX POST http://localhost:8080/api/notebook/import -d @notebook/raneynote.json \--header "Content-Type: application/json"
+  curl -vX POST http://localhost:8080/api/notebook/import -d @notebook/raneynote2.json \--header "Content-Type: application/json"
 
   sleep 5
 
