@@ -1,5 +1,7 @@
 websocketd
 hugo
+analytics-workshop-ddl.sh
+analytics-workshop-dml.sh
 installZeppelin.sh
 nodetool-repair.sh
 restartOpsCenter.sh
