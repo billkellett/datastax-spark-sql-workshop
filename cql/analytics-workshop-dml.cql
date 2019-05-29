@@ -1,8 +1,8 @@
-copy alwaysonsql_workshop.countries 
-  from '/tmp/datastax-alwaysonsql-workshop/data/alwaysonsql_workshop.countries.csv' 
+copy analytics_workshop.countries 
+  from '/tmp/datastax-analytics-workshop/data/analytics_workshop.countries.csv' 
   with HEADER = TRUE;
 
-copy alwaysonsql_workshop.customers (
+copy analytics_workshop.customers (
   account_number,
   first_name,
   last_name,
@@ -24,10 +24,10 @@ copy alwaysonsql_workshop.customers (
   avoids_alcohol_min,
   protects_environment_min
 )
-  from '/tmp/datastax-alwaysonsql-workshop/data/alwaysonsql_workshop.customers.csv' 
+  from '/tmp/datastax-analytics-workshop/data/analytics_workshop.customers.csv' 
   with HEADER = true;
   
-copy alwaysonsql_workshop.transactions (
+copy analytics_workshop.transactions (
   transaction_id,
   instrument_id,
   instrument_name,
@@ -44,10 +44,10 @@ copy alwaysonsql_workshop.transactions (
   account_country,
   account_city
 )
-  from '/tmp/datastax-alwaysonsql-workshop/data/alwaysonsql_workshop.transactions.csv' 
+  from '/tmp/datastax-analytics-workshop/data/analytics_workshop.transactions.csv' 
   with HEADER = true;
   
-copy alwaysonsql_workshop.transactions_historical (
+copy analytics_workshop.transactions_historical (
   transaction_id,
   instrument_id,
   instrument_name,
@@ -64,10 +64,10 @@ copy alwaysonsql_workshop.transactions_historical (
   account_country,
   account_city
 )
-  from '/tmp/datastax-alwaysonsql-workshop/data/alwaysonsql_workshop.transactions_historical.csv' 
+  from '/tmp/datastax-analytics-workshop/data/analytics_workshop.transactions_historical.csv' 
   with HEADER = true;
   
-copy alwaysonsql_workshop.transactions_buy (
+copy analytics_workshop.transactions_buy (
   transaction_id,
   instrument_id,
   instrument_name,
@@ -84,10 +84,10 @@ copy alwaysonsql_workshop.transactions_buy (
   account_country,
   account_city
 )
-  from '/tmp/datastax-alwaysonsql-workshop/data/alwaysonsql_workshop.transactions_buy.csv' 
+  from '/tmp/datastax-analytics-workshop/data/analytics_workshop.transactions_buy.csv' 
   with HEADER = true;
   
-copy alwaysonsql_workshop.transactions_sell (
+copy analytics_workshop.transactions_sell (
   transaction_id,
   instrument_id,
   instrument_name,
@@ -104,5 +104,5 @@ copy alwaysonsql_workshop.transactions_sell (
   account_country,
   account_city
 )
-  from '/tmp/datastax-alwaysonsql-workshop/data/alwaysonsql_workshop.transactions_sell.csv' 
+  from '/tmp/datastax-analytics-workshop/data/analytics_workshop.transactions_sell.csv' 
   with HEADER = true;
