@@ -1,19 +1,19 @@
 // start from a clean slate
 
-drop keyspace if exists alwaysonsql_workshop;
+drop keyspace if exists analytics_workshop;
 
 // create the keyspace for the workshop
 
-create keyspace if not exists alwaysonsql_workshop 
-    WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 3};
+create keyspace if not exists analytics_workshop 
+    WITH replication = {'class': 'NetworkTopologyStrategy', 'replication_factor' : 3};
 
 // create all tables
 
-create table if not exists alwaysonsql_workshop.countries (
+create table if not exists analytics_workshop.countries (
     country text,
     primary key (country));
     
-create table if not exists alwaysonsql_workshop.customers (
+create table if not exists analytics_workshop.customers (
     account_number              int,
     first_name                  text,
     last_name                   text,
@@ -36,7 +36,7 @@ create table if not exists alwaysonsql_workshop.customers (
     protects_environment_min    int,
 primary key (account_number));
 
-create table if not exists alwaysonsql_workshop.transactions (
+create table if not exists analytics_workshop.transactions (
     transaction_id              text,
     instrument_id               text,
     instrument_name             text,
@@ -55,7 +55,7 @@ create table if not exists alwaysonsql_workshop.transactions (
 primary key (account_number, transaction_id))
 with clustering order by (transaction_id desc);
 
-create table if not exists alwaysonsql_workshop.transactions_historical (
+create table if not exists analytics_workshop.transactions_historical (
     transaction_id              text,
     instrument_id               text,
     instrument_name             text,
@@ -74,7 +74,7 @@ create table if not exists alwaysonsql_workshop.transactions_historical (
 primary key (account_number, transaction_id))
 with clustering order by (transaction_id desc);
 
-create table if not exists alwaysonsql_workshop.transactions_buy (
+create table if not exists analytics_workshop.transactions_buy (
     transaction_id              text,
     instrument_id               text,
     instrument_name             text,
@@ -93,7 +93,7 @@ create table if not exists alwaysonsql_workshop.transactions_buy (
 primary key (account_number, transaction_id))
 with clustering order by (transaction_id desc);
 
-create table if not exists alwaysonsql_workshop.transactions_sell (
+create table if not exists analytics_workshop.transactions_sell (
     transaction_id              text,
     instrument_id               text,
     instrument_name             text,
