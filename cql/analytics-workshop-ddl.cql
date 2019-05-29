@@ -5,7 +5,7 @@ drop keyspace if exists analytics_workshop;
 // create the keyspace for the workshop
 
 create keyspace if not exists analytics_workshop 
-    WITH replication = {'class': 'NetworkTopologyStrategy', 'replication_factor' : 3};
+    WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 3};
 
 // create all tables
 
