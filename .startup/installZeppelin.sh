@@ -52,9 +52,9 @@ then
   sleep 5
 
   # import zeppelin notebooks
-  curl -vX POST http://localhost:8080/api/notebook/import -d @notebook/bkplay.json \--header "Content-Type: application/json"
-  curl -vX POST http://localhost:8080/api/notebook/import -d @notebook/raneynote.json \--header "Content-Type: application/json"
-  curl -vX POST http://localhost:8080/api/notebook/import -d @notebook/raneynote2.json \--header "Content-Type: application/json"
+  curl -vX POST http://localhost:8080/api/notebook/import -d @notebooks/bkplay.json \--header "Content-Type: application/json"
+  curl -vX POST http://localhost:8080/api/notebook/import -d @notebooks/raneynote.json \--header "Content-Type: application/json"
+  curl -vX POST http://localhost:8080/api/notebook/import -d @notebooks/raneynote2.json \--header "Content-Type: application/json"
 
   sleep 5
 
