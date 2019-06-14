@@ -26,25 +26,25 @@ then
   #Initialize Zeppelin.
   
   # save for debugging purposes
-  curl -o zeppelinhome.out "http://localhost:8080/#/" -L -m 10
-  curl -o zeppelininterp.out "http://localhost:8080/#/interpreter" -L -m 10
+  curl -o zeppelinhome.out "http://node0:8080/#/" -L -m 10
+  curl -o zeppelininterp.out "http://node0:8080/#/interpreter" -L -m 10
 
   #Set variable to the Zeppelin Cassandra interpreter id
-  CASSANDRA_INTERP_ID=$(curl localhost:8080/api/interpreter/setting | jq '.body|.[]|select(.name=="cassandra")|.id' -r)
+  CASSANDRA_INTERP_ID=$(curl node0:8080/api/interpreter/setting | jq '.body|.[]|select(.name=="cassandra")|.id' -r)
 
   #Cassandra interpreter settings
-  #Modify localhost - create a Zeppelin cassandra-settings.json file that modifies the cluster name and host name.
-  curl localhost:8080/api/interpreter/setting | jq '.body|.[]|select(.name=="cassandra")|setpath(["properties","cassandra.cluster"]; "Cluster 1")|setpath(["properties","cassandra.hosts"]; "node0")|del(.id)' > cassandra-settings.json
+  #Modify node0 - create a Zeppelin cassandra-settings.json file that modifies the cluster name and host name.
+  curl node0:8080/api/interpreter/setting | jq '.body|.[]|select(.name=="cassandra")|setpath(["properties","cassandra.cluster"]; "Cluster 1")|setpath(["properties","cassandra.hosts"]; "node0")|del(.id)' > cassandra-settings.json
 
   #Update Interpreter Settings - upload the newly-created cassandra-settings.json file to the Zeppelin interpreter settings, using the CASSANDRA_INTERP_ID saved earlier
   curl -vX PUT "http://node0:8080/api/interpreter/setting/$CASSANDRA_INTERP_ID" -d @cassandra-settings.json \--header "Content-Type: application/json"
 
   #Set variable to the Zeppelin Spark interpreter id
-  SPARK_INTERP_ID=$(curl localhost:8080/api/interpreter/setting | jq '.body|.[]|select(.name=="spark")|.id' -r)
+  SPARK_INTERP_ID=$(curl node0:8080/api/interpreter/setting | jq '.body|.[]|select(.name=="spark")|.id' -r)
 
   #Spark interpreter settings
   #Add cassandra host setting - create a Zeppelin spark-settings.json file that customizes for this installation
-  curl localhost:8080/api/interpreter/setting | jq '.body|.[]|select(.name=="spark")|setpath(["properties","spark.cassandra.connection.host"]; "node0")|del(.id)' > spark-settings.json
+  curl node0:8080/api/interpreter/setting | jq '.body|.[]|select(.name=="spark")|setpath(["properties","spark.cassandra.connection.host"]; "node0")|del(.id)' > spark-settings.json
 
   #Update Interpreter Settings
   curl -vX PUT "http://node0:8080/api/interpreter/setting/$SPARK_INTERP_ID" -d @spark-settings.json \--header "Content-Type: application/json"
@@ -52,9 +52,9 @@ then
   sleep 5
 
   # import zeppelin notebooks
-  curl -vX POST http://localhost:8080/api/notebook/import -d @notebooks/bkplay.json \--header "Content-Type: application/json"
-  curl -vX POST http://localhost:8080/api/notebook/import -d @notebooks/raneynote.json \--header "Content-Type: application/json"
-  curl -vX POST http://localhost:8080/api/notebook/import -d @notebooks/raneynote2.json \--header "Content-Type: application/json"
+  curl -vX POST http://node0:8080/api/notebook/import -d @notebooks/bkplay.json \--header "Content-Type: application/json"
+  curl -vX POST http://node0:8080/api/notebook/import -d @notebooks/raneynote.json \--header "Content-Type: application/json"
+  curl -vX POST http://node0:8080/api/notebook/import -d @notebooks/raneynote2.json \--header "Content-Type: application/json"
 
   sleep 5
 
