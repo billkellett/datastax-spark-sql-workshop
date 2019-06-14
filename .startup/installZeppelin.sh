@@ -10,7 +10,7 @@ if [ `hostname` == 'node0' ]
 then
   echo "Downloading Zeppelin..."
   curl -s -o zeppelin-0.7.1.tar.gz 'https://s3.amazonaws.com/dse-sketch-examples/zeppelin-0.7.1-dse-5.1.1.tar.gz' -L 2>&1 | tee zeppelin-download.log
-  echo "... Zeppelin download complete.
+  echo "... Zeppelin download complete."
 
   echo "Untar Zeppelin."
   tar -zxf zeppelin-0.7.1.tar.gz
