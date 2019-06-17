@@ -9,6 +9,12 @@ create keyspace if not exists analytics_workshop
 
 // create all tables
 
+create table if not exists analytics_workshop.avg_review (
+    instrument_symbol           text,
+    last_updated                text,
+    avg_review_stars            int,
+    primary key (instrument_symbol));
+
 create table if not exists analytics_workshop.countries (
     country text,
     primary key (country));
@@ -35,6 +41,15 @@ create table if not exists analytics_workshop.customers (
     avoids_alcohol_min          int,
     protects_environment_min    int,
 primary key (account_number));
+             
+create table if not exists analytics_workshop.review (
+    customer_id                 int,
+    instrument_symbol           text,
+    review_date                 text,
+    review_stars                int,
+primary key (instrument_symbol, customer_id, review_date)
+)
+with clustering order by (customer_id asc, review_date desc);
 
 create table if not exists analytics_workshop.transactions (
     transaction_id              text,
