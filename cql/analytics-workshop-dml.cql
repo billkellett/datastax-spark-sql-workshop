@@ -1,3 +1,11 @@
+copy analytics_workshop.avg_review.csv (
+  instrument_symbol,
+  last_updated,
+  avg_review_stars
+)
+  from '/tmp/datastax-spark-sql-workshop/data/analytics_workshop.avg_review.csv'
+  with HEADER = TRUE;
+
 copy analytics_workshop.countries 
   from '/tmp/datastax-spark-sql-workshop/data/analytics_workshop.countries.csv' 
   with HEADER = TRUE;
@@ -26,6 +34,15 @@ copy analytics_workshop.customers (
 )
   from '/tmp/datastax-spark-sql-workshop/data/analytics_workshop.customers.csv' 
   with HEADER = true;
+  
+copy analytics_workshop.review (
+  customer_id,
+  instrument_symbol,
+  review_date,
+  review_stars
+)
+  from '/tmp/datastax-spark-sql-workshop/data/analytics_workshop.review.csv'
+  with HEADER = TRUE;
   
 copy analytics_workshop.transactions (
   transaction_id,
