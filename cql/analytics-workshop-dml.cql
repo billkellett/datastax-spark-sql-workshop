@@ -1,4 +1,4 @@
-copy analytics_workshop.avg_review.csv (
+copy analytics_workshop.avg_review (
   instrument_symbol,
   last_updated,
   avg_review_stars
