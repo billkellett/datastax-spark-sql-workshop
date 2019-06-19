@@ -12,7 +12,7 @@ create keyspace if not exists analytics_workshop
 create table if not exists analytics_workshop.avg_review (
     instrument_symbol           text,
     last_updated                text,
-    avg_review_stars            int,
+    avg_review_stars            decimal,
     primary key (instrument_symbol));
 
 create table if not exists analytics_workshop.countries (
