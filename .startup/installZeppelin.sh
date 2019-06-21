@@ -73,8 +73,7 @@ then
   curl -vX POST http://node0:8080/api/notebook/import -d @notebooks/Lab_1_-_Spark-SQL_for_Business_Analytics.json \--header "Content-Type: application/json"
   curl -vX POST http://node0:8080/api/notebook/import -d @notebooks/Lab_2_-_Spark-SQL_for_OLTP_Aggregations.json \--header "Content-Type: application/json"
   curl -vX POST http://node0:8080/api/notebook/import -d @notebooks/Lab_3_-_Spark-SQL_for_ETL.json \--header "Content-Type: application/json"
-  curl -vX POST http://node0:8080/api/notebook/import -d @notebooks/raneynote.json \--header "Content-Type: application/json"
-  curl -vX POST http://node0:8080/api/notebook/import -d @notebooks/raneynote2.json \--header "Content-Type: application/json"
+  curl -vX POST http://node0:8080/api/notebook/import -d @notebooks/Lab_4_-_Spark-SQL_Programming.json \--header "Content-Type: application/json"
   echo "... Zeppelin notebooks import complete."
 
   sleep 5
