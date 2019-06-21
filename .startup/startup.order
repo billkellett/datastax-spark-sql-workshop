@@ -2,6 +2,7 @@ websocketd
 hugo
 analytics-workshop-ddl.sh
 analytics-workshop-dml.sh
+populate-dsefs.sh
 installZeppelin.sh
 nodetool-repair.sh
 restartOpsCenter.sh
