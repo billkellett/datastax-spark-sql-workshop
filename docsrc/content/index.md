@@ -1,5 +1,5 @@
 ---
-title: Asset Name
+title: DataStax Spark-SQL Workshop
 type: index
 weight: 10
 ---
