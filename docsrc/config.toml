@@ -1,5 +1,5 @@
 languageCode = "en-us"
-title = "Asset Name"
+title = "DataStax Spark-SQL Workshop"
 theme = "hugo-material-docs"
 metadataformat = "yaml"
 canonifyurls = true
@@ -8,7 +8,7 @@ baseUrl = "/"
 disableKinds = ["taxonomy","taxonomyTerm"]
 
 [params]
-	description = "Asset Name"
+	description = "DataStax Spark-SQL Workshop"
 
 	logo = "images/asset-hub.svg"
 	favicon = "/images/asset-hub.png"
@@ -29,7 +29,7 @@ disableKinds = ["taxonomy","taxonomyTerm"]
 
 
 [[menu.main]]
-	name   = "Asset Name"
+	name   = "DataStax Spark-SQL Workshop"
 	url    = "/"
 	weight = 10
 [[menu.main]]
