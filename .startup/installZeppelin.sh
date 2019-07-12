@@ -19,8 +19,12 @@ then
   echo "Start Zeppelin."
   zeppelin-0.7.1/bin/zeppelin-daemon.sh start
 
-  #Although start is synchronous, I'll give it some time anyway
-  sleep 5
+  # Although start is synchronous, I'll give it some time anyway
+  # I sometimes have problems with connection refused on node0:8080, so this gives the Zeppelin
+  # web server time to start up.
+  echo "Sleep 5 minutes to give Zeppelin some time to start its web server..."
+  sleep 5m
+  echo "... 5-minute Zeppelin sleep time complete."
 
   #XML Parser
   echo "Install jquery..."
