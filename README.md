@@ -10,7 +10,7 @@ This workshop helps prospects become familiar with Spark-SQL.  We take a "practi
 
 ### What is included?
 
-Zeppelin notebooks, a pre-populated keyspace, executable code, and a corresponding presentation (with detailed speaker notes) walk the students through the most important capabilities of AlwaysOnSQL for database-centric applications.
+Zeppelin notebooks, a pre-populated keyspace, executable code, and a corresponding presentation (with detailed speaker notes) walk the students through the most important capabilities of Spark SQL for database-centric applications.
 
 * Basic SQL functionality for data analytics
 * An OLTP Aggregation use case
